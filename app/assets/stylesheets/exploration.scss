@@ -1,0 +1,26 @@
+.story_covers {
+    border-radius: 3rem;
+    font-family: 'Jua', 'sans-serif';
+    color: var(--BLUEGREENPASTEL);
+}
+
+.upload_story {
+    bottom: 5%;
+    right: 5%;
+    z-index: 9999;
+    font-size: 4rem;
+    height: 6rem;
+    width: 6rem;
+    padding-top: 0.5rem;
+    color: var(--GOLD);
+    font-family: 'Jua', 'sans-serif';
+    border-radius: 50%;
+}
+
+.story_description {
+    overflow-wrap: break-word;
+}
+
+.story_image_cover {
+    height: 50rem;
+}

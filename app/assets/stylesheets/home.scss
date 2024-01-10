@@ -1,0 +1,66 @@
+.posters {
+    .poster {
+        height: 29rem;
+        width: 14rem;
+        background-color: var(--WALNUT);
+    }
+
+    img {
+        object-fit: fill;
+    }
+}
+
+.welcome__content,
+.remind__content {
+    font-size: 3rem;
+    font-family: 'Pony', 'sans-serif';
+    color: var(--WALNUT);
+}
+
+.remind__content {
+    font-size: 1.5rem;
+}
+
+.left__layout {
+    width: 55%;
+}
+
+.right__layout {
+    width: 45%;
+}
+
+.image__team__cover {
+    width: 95%;
+    margin-top: 0.7rem;
+}
+
+@media only screen and (max-width: 620px) {
+    .posters .poster {
+        width: 18%;
+        height: 20rem;
+    }
+
+    main {
+        display: block;
+    }
+
+    .left__layout {
+        width: 100%;
+    }
+
+    .right__layout {
+        width: 100%;
+    }
+
+    .remind__content {
+        height: 5rem;
+    }
+
+    .welcome__cover {
+        margin-top: 2rem;
+    }
+
+    .welcome__content {
+        font-size: 2.5rem;
+    }
+}

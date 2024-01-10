@@ -1,0 +1,16 @@
+    div class="background__cover w-full absolute h-screen"
+    main class="login__cover flex h-screen w-4/6 my-0 mx-auto flex-col items-center justify-center"
+        div class="login__screen h-full w-4/5 relative"
+            div class="login__screen__cover w-full m-auto mt-14 relative"
+                img src="/assets/login-screen.jpg" alt=""
+            form name="login_form" method="POST" action="#{sign_in_path}" class="form__login absolute py-0 px-12 flex items-end flex-col justify-around bottom-1/4"
+                = hidden_field_tag :authenticity_token, form_authenticity_token
+                div class='form__input__group w-full'
+                    div class="form__input relative h-12 mb-3"
+                        label class="form__input__label text-white absolute ml-6" name:
+                        input name="username" class="form__input__field py-0 text-white w-full"
+                    div class="form__input relative h-12"
+                        label class="form__input__label text-white absolute ml-6" password:
+                        input name="password" type="password" class="form__input__field py-0 text-white w-full password"
+                div class="button__submit cursor-pointer mr-12" onClick="document.forms['login_form'].submit();"
+                    img src="/assets/submit.jpg" alt=""

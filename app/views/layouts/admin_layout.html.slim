@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title TNT
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+    = favicon_link_tag asset_path('favicon.ico')
+    = stylesheet_link_tag "layout", "data-turbo-track": "reload"
+    - case controller_name
+      - when 'posts'
+        = stylesheet_link_tag 'post'
+    = javascript_importmap_tags
+
+  body
+    header class="h-20 w-full fixed flex justify-between px-20"
+      div class="flex items-center"
+        form class="" method="post" action="#{logout_path}"
+            input type="hidden" name="_method" value="delete" autocomplete="off"
+            button type="submit" class="w-20"
+                img src="/assets/logout.jpg"
+            = hidden_field_tag :authenticity_token, form_authenticity_token
+        div class="nickname text-3xl ml-4" = @user.nickname
+      a href="#{root_path}" class=""
+        img src="/assets/home.jpg"
+    = yield

@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    height: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --GINER: #DC9D00;
+    --GOLD: #FFE091;
+    --WALNUT: #825748;
+    --BLUEGREENPASTEL: #6B8B89;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--GOLD);
+}
+
+input:focus {
+    outline: none !important;
+}
+
+@font-face {
+    font-family: 'Pony';
+    font-weight: normal;
+    font-style: normal;
+    src: url('./fonts/Pony/icielPony.ttf');
+}
+
+@font-face {
+    font-family: 'Jua';
+    font-weight: normal;
+    font-style: normal;
+    src: url('./fonts/Jua/Jua-Regular.ttf');
+}
+
+header {
+    height: 5rem;
+    background-color: var(--GINER);
+    z-index: 9999;
+}
+
+main {
+    display: flex;
+}
+
+.button-carousel {
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: 0.5s;
+    font-family: 'Jua';
+}
+
+.button-carousel:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+
+}
+
+.slide {
+    opacity: 0;
+    inset: 0;
+    transition: 200ms opacity ease-in-out;
+
+    img {
+        object-fit: fill;
+    }
+}
+
+.slide[data-active="active"] {
+    opacity: 1;
+    transition-delay: 0ms;
+}
+
+.slideCount {
+    font-family: 'Pony', 'sans-serif';
+}
+
+.nickname {
+    font-family: 'Pony', 'sans-serif';
+    color: white;
+}
