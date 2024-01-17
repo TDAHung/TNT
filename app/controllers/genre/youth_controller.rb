@@ -1,3 +1,9 @@
-class Genre::YouthController < ApplicationController
-  before_action :check_user_authentication
+class Genre::YouthController < Genre::GenreController
+  def index
+    @youths = Youth.all
+  end
+
+  def show
+    @youth = Youth.find(params[:id])
+  end
 end

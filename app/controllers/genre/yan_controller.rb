@@ -1,3 +1,9 @@
-class Genre::YanController < ApplicationController
-  before_action :check_user_authentication
+class Genre::YanController < Genre::GenreController
+  def index
+    @yans = Yan.all
+  end
+
+  def show
+    @yan = Yan.find(params[:id])
+  end
 end

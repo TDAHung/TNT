@@ -1,6 +1,6 @@
 .posters {
     .poster {
-        height: 29rem;
+        height: 25rem;
         width: 14rem;
         background-color: var(--WALNUT);
     }
@@ -8,6 +8,11 @@
     img {
         object-fit: fill;
     }
+}
+
+.star {
+    width: 100rem;
+    height: 13rem;
 }
 
 .welcome__content,

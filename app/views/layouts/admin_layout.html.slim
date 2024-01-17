@@ -8,8 +8,11 @@ html
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = favicon_link_tag asset_path('favicon.ico')
     = stylesheet_link_tag "layout", "data-turbo-track": "reload"
+    - puts controller_name
     - case controller_name
-      - when 'posts'
+      - when 'posts', 'posters'
+        = stylesheet_link_tag 'post'
+      - when 'angels', 'yan', 'youth'
         = stylesheet_link_tag 'post'
     = javascript_importmap_tags
 

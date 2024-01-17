@@ -1,0 +1,23 @@
+        main class="justify-center pt-32"
+            div class="w-7/12 min-h-screen"
+                / 1 element
+                div class="py-12 flex items-center" id="story_1"
+                    div class="story_covers bg-white w-11/12 h-full m-auto"
+                        div class="author_information flex items-center justify-between"
+                            div class="left_layout flex items-center"
+                                div class="avatar_cover w-36"
+                                    img src="/assets/favicon.jpg" alt=""
+                                div class="author_name text-5xl"
+                                    div class="author_name"晓晓✿⁠晓寒
+                                    div class="author_name story_created_at text-2xl" = @yan.updated_at.in_time_zone("Asia/Ho_Chi_Minh").strftime("%H:%M %P %d/%m/%Y")
+                        div class="story_image"
+                            div class="h-auto"
+                                - @yan.pages.each do |page|
+                                    img src="#{page.url}" class="h-full"
+                            div class="story_like_cover flex items-center z-50"
+                                div class="story_like_img"
+                                    img class="h-full w-20 ml-24" src="/assets/like.jpg" alt=""
+                                div class="story_like_count"
+                                    div class="ml-6 text-3xl" 123 popcorns
+        - if @user.is_admin == true
+            a href="#{new_admin_genre_yan_path}" class="upload_story fixed bg-white flex justify-center items-center" +

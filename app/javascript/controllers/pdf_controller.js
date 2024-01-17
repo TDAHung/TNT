@@ -15,8 +15,8 @@ export default class extends Controller {
     handleAddImg(src, index) {
         const imagePreviewNode = document.querySelector("#image-upload").content.cloneNode(true);
         const imageElement = imagePreviewNode.querySelector("div");
-        const img = imageElement.querySelector('img');
-        img.src = src;
+        const canvas = imageElement.querySelector('iframe');
+        canvas.src = src;
 
         const deleteButtonNode = document.querySelector('#deleteButton');
         const deleteButtonFragment = deleteButtonNode.content.cloneNode(true);
@@ -33,7 +33,7 @@ export default class extends Controller {
 
         imageElement.innerHTML = '';
         imageElement.appendChild(deleteButtonElement);
-        imageElement.appendChild(img);
+        imageElement.appendChild(canvas);
         return imageElement;
     }
 
@@ -59,6 +59,7 @@ export default class extends Controller {
             const srcs = files.map((file) => URL.createObjectURL(file));
 
             this.imgGroupTarget.innerHTML = '';
+
             srcs.forEach((element, index) => {
                 const children = this.handleAddImg(element, index);
                 this.imgGroupTarget.insertBefore(

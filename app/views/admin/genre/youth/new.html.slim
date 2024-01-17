@@ -1,0 +1,21 @@
+    main class="justify-center pt-32"
+        div class="w-7/12 min-h-screen"
+            form class=""  method="POST" action="#{admin_genre_youth_index_path}" enctype="multipart/form-data"
+                = hidden_field_tag :authenticity_token, form_authenticity_token
+                div class='form__input__group w-full' data-controller="photos"
+                    div class="form__input mb-3"
+                        label class="form__input__label text-white absolute ml-6" description:
+                        textarea name="youth[name]" class="form__input__field py-0 text-white w-full"
+                    div class="form__input mb-3"
+                        input [type="file" id="file-upload" multiple="multiple" data-photos-target="fileInput" data-action="input->photos#handleChange"
+                            accept="image/gif, image/jpeg, image/png, image/jpg, image/webp" name="youth[pages][]"]
+                    div class="form__input"
+                        div class="row imgGroup" data-photos-target="imgGroup"
+                            div class="form__input preview pb-3 position-relative"
+                    template data-photos-target="imagePreview" id="image-upload"
+                        div class="form__input preview pb-3 position-relative"
+                                img src=""
+                    template id="deleteButton"
+                        div class="position-absolute top-0 m-3 text-danger" role="button" data-action="click->photos#removeImg"
+                            i class="fs-2 fa-solid fa-x" x
+                    input type="submit" class="form__input cursor-pointer p-0" value="Up hinh"

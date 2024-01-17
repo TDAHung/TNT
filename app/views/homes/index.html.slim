@@ -4,20 +4,25 @@
                 div class="posters flex justify-between mt-8"
                     a href="#{explorations_path}" class="poster rounded-2xl"
                         div class="poster__cover h-full rounded-2xl"
-                            img class="w-full rounded-2xl" src="/assets/poster1.jpg" alt="poster 1"
+                            img class="w-full rounded-2xl" src="#{!@poster[0].nil? ? @poster[0].image.url : '/assets/poster1.jpg'}" alt="poster 1"
+                    a href="#{!@poster[0].nil? ? edit_poster_path(@poster[0].id) : ''}" edit
                     a href="#{genre_angels_path}" class="poster rounded-2xl"
                         div class="poster__cover h-full rounded-2xl"
-                            img class="w-full rounded-2xl" src="/assets/poster2.jpg" alt="poster 2"
+                            img class="w-full rounded-2xl" src="#{!@poster[1].nil? ? @poster[1].image.url : '/assets/poster2.jpg'}" alt="poster 2"
+                    a href="#{!@poster[1].nil? ? edit_poster_path(@poster[1].id) : ''}" edit
                     a href="#{genre_youth_path}" class="poster rounded-2xl"
                         div class="poster__cover h-full rounded-2xl"
-                            img class="h-full rounded-2xl" src="/assets/poster3.jpg" alt="poster 3"
+                            img class="h-full rounded-2xl" src="#{!@poster[2].nil? ? @poster[2].image.url : '/assets/poster3.jpg'}" alt="poster 3"
+                    a href="#{!@poster[2].nil? ? edit_poster_path(@poster[2].id) : ''}" edit
                     a href="#{genre_yan_path}" class="poster rounded-2xl"
                         div class="poster__cover h-full rounded-2xl"
-                            img class="h-full rounded-2xl" src="/assets/poster1.jpg" alt="poster 4"
+                            img class="h-full rounded-2xl" src="#{!@poster[3].nil? ? @poster[3].image.url : '/assets/poster1.jpg'}" alt="poster 4"
+                    a href="#{!@poster[3].nil? ? edit_poster_path(@poster[3].id) : ''}" edit
                     a href="#{new_feedback_path}" class="poster rounded-2xl"
                         div class="poster__cover h-full rounded-2xl"
-                            img class="h-full rounded-2xl" src="/assets/feedback.jpg" alt="poster 5"
-            div class="stars__cover ml-12"
+                            img class="h-full rounded-2xl" src="#{!@poster[4].nil? ? @poster[4].image.url : '/assets/feedback.jpg'}" alt="poster 5"
+                    a href="#{!@poster[4].nil? ? edit_poster_path(@poster[4].id) : ''}" edit
+            div class="stars__cover"
                 ul class="stars mt-12 flex"
                     li class="star"
                         div class="star__cover flex"

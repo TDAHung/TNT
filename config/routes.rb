@@ -15,13 +15,22 @@ Rails.application.routes.draw do
 
   namespace :genre do
     get "angels", to: "angels#index"
+    get "angels/:id", to: "angels#show"
     get "youth", to: "youth#index"
+    get "youth/:id", to: "youth#show"
     get "yan", to: "yan#index"
+    get "yan/:id", to: "yan#show"
   end
 
   namespace :admin do
     resources :posts, only: [:new, :create, :destroy]
+    namespace :genre do
+      resources :angels, only: [:new, :create, :destroy]
+      resources :youth, only: [:new, :create, :destroy]
+      resources :yan, only: [:new, :create, :destroy]
+    end
   end
 
   resources :feedbacks, only: [:new, :create]
+  resources :posters, only: [:new,:create,:edit, :update]
 end

@@ -1,3 +1,9 @@
-class Genre::AngelsController < ApplicationController
-  before_action :check_user_authentication
+class Genre::AngelsController < Genre::GenreController
+  def index
+    @angels = Angel.all
+  end
+
+  def show
+    @angel = Angel.find(params[:id])
+  end
 end
