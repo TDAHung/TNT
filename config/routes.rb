@@ -33,4 +33,5 @@ Rails.application.routes.draw do
 
   resources :feedbacks, only: [:new, :create]
   resources :posters, only: [:new,:create,:edit, :update]
+  resources :popcorns, only: [:create, :destroy]
 end

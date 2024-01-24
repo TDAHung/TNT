@@ -1,0 +1,14 @@
+= turbo_frame_tag "popcorn-#{genre["id"]}-#{genre.class.name}"
+    - is_found = !genre.popcorns.empty?
+    form action="#{is_found ? popcorns_path : popcorns_path(@current_user.id)}" method="post" data-remote="true" name="popcorn_form"
+        = hidden_field_tag :authenticity_token, form_authenticity_token
+        - if is_found == true
+            input type="hidden" name="_method" value="delete" autocomplete="off"
+        - else
+            input type="hidden" name="popcorn[popcornanble_type]" value="#{genre.class.name}"
+            input type="hidden" name="popcorn[popcornanble_id]" value="#{genre["id"]}"
+        div class="story_like_cover flex items-center cursor-pointer" onClick="document.forms['popcorn_form'].submit();"
+            div class="story_like_img"
+                img class="h-full w-20 ml-24" src="#{is_found ? "/assets/like.jpg" : "/assets/like.jpg"}" alt=""
+            div class="story_like_count"
+                div class="ml-6 text-3xl" = @popcorns.count popcorns
