@@ -78,5 +78,5 @@ gem 'sass-rails'
 gem 'bcrypt'
 gem 'stimulus-rails'
 gem 'carrierwave', '~> 3.0'
-gem "fog-aws"
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary'

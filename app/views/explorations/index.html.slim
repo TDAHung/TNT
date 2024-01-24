@@ -15,6 +15,6 @@
                             div class="story_image"
                                 div class="story_image_cover"
                                     = render partial: "shared/carousel", locals: {images: post.images}
-                                = render partial: "shared/button/popcorn", locals: {genre: post, popcorns: @popcorns}
-        - if @user.is_admin == true
+                                = render partial: "shared/button/popcorn", locals: {genre: post}
+        - if @current_user.is_admin == true
             a href="#{new_admin_post_path}" class="upload_story fixed bg-white flex justify-center items-center" +

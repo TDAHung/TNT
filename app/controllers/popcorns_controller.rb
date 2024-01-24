@@ -2,24 +2,27 @@ class PopcornsController < ApplicationController
 
   def create
     popcorn = Popcorn.new(popcorn_params)
+    popcorn.user_id = @current_user.id
     @popcorns = Popcorn.where(popcornable_type: popcorn.popcornable_type)
     case popcorn.popcornable_type
     when "Post"
-      @genre = Post.find(popcorn.popcornable_id).includes(:popcorns)
+      @genre = Post.find(popcorn.popcornable_id)
     when "Yan"
-      @genre = Yan.find(popcorn.popcornable_id).includes(:popcorns)
+      @genre = Yan.find(popcorn.popcornable_id)
     when "Youth"
-      @genre = Youth.find(popcorn.popcornable_id).includes(:popcorns)
+      @genre = Youth.find(popcorn.popcornable_id)
     when "Angel"
-      @genre = Angel.find(popcorn.popcornable_id).includes(:popcorns)
+      @genre = Angel.find(popcorn.popcornable_id)
     end
+    puts "popcorn-#{popcorn.popcornable_id}-#{popcorn.popcornable_type}"
     if popcorn.save
       respond_to do |format|
         format.turbo_stream do
-          render turbo_stream: [
-            turbo_stream.replace("#{popcorn.popcornable_id}-#{popcorn.popcornable_type}",
+          render turbo_stream:
+          [
+            turbo_stream.replace("popcorn-#{popcorn.popcornable_id}-#{popcorn.popcornable_type}",
               partial: 'shared/button/popcorn',
-              locals: { genre: @genre, popcorns: @popcorns }),
+              locals: { genre: @genre }),
           ]
         end
       end
@@ -27,25 +30,25 @@ class PopcornsController < ApplicationController
   end
 
   def destroy
-    popcorn = Popcorn.find(params["id"])
-    @popcorns = Popcorn.where(popcornable_type: popcorn.popcornable_type)
+    popcorn = Popcorn.find_by(user_id: params["id"])
     case popcorn.popcornable_type
     when "Post"
-      @genre = Post.find(popcorn.popcornable_id).includes(:popcorns)
+      @genre = Post.find(popcorn.popcornable_id)
     when "Yan"
-      @genre = Yan.find(popcorn.popcornable_id).includes(:popcorns)
+      @genre = Yan.find(popcorn.popcornable_id)
     when "Youth"
-      @genre = Youth.find(popcorn.popcornable_id).includes(:popcorns)
+      @genre = Youth.find(popcorn.popcornable_id)
     when "Angel"
-      @genre = Angel.find(popcorn.popcornable_id).includes(:popcorns)
+      @genre = Angel.find(popcorn.popcornable_id)
     end
-    if popcorn.delete_all
+    if popcorn.destroy
       respond_to do |format|
         format.turbo_stream do
-          render turbo_stream: [
-            turbo_stream.replace("#{popcorn.popcornable_id}-#{popcorn.popcornable_type}",
+          render turbo_stream:
+          [
+            turbo_stream.replace("popcorn-#{popcorn.popcornable_id}-#{popcorn.popcornable_type}",
               partial: 'shared/button/popcorn',
-              locals: { genre: @genre, popcorns: @popcorns }),
+              locals: { genre: @genre }),
           ]
         end
       end
