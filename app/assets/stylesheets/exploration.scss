@@ -25,6 +25,34 @@
     height: 50rem;
 }
 
+
+.story_like_img:hover {
+    background-image: url(un_popcorn.jpg);
+    animation-name: pulse;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
 .genre_pages_cover {
     height: 20rem !important;
+}
+
+@keyframes pulse {
+    0% {}
+
+    10% {
+        transform: rotate(10deg);
+    }
+
+    20% {
+        transform: rotate(0deg);
+    }
+
+    30% {
+        transform: rotate(-10deg);
+    }
+
+    40% {
+        transform: rotate(0deg);
+    }
 }

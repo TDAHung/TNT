@@ -14,7 +14,6 @@ class PopcornsController < ApplicationController
     when "Angel"
       @genre = Angel.find(popcorn.popcornable_id)
     end
-    puts "popcorn-#{popcorn.popcornable_id}-#{popcorn.popcornable_type}"
     if popcorn.save
       respond_to do |format|
         format.turbo_stream do
@@ -30,7 +29,9 @@ class PopcornsController < ApplicationController
   end
 
   def destroy
-    popcorn = Popcorn.find_by(user_id: params["id"])
+    popcorn = Popcorn.find_by(user_id: params["id"],
+      popcornable_id: popcorn_params[:popcornable_id],
+      popcornable_type: popcorn_params[:popcornable_type])
     case popcorn.popcornable_type
     when "Post"
       @genre = Post.find(popcorn.popcornable_id)

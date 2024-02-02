@@ -4,12 +4,11 @@
         = hidden_field_tag :authenticity_token, form_authenticity_token
         - if is_found == true
             input type="hidden" name="_method" value="delete" autocomplete="off"
-        - else
-            input type="hidden" name="popcorn[popcornable_type]" value="#{genre.class.name}"
-            input type="hidden" name="popcorn[popcornable_id]" value="#{genre["id"]}"
+        input type="hidden" name="popcorn[popcornable_type]" value="#{genre.class.name}"
+        input type="hidden" name="popcorn[popcornable_id]" value="#{genre["id"]}"
         button type="submit" class="ml-24"
             div class="story_like_cover flex items-center"
                 div class="story_like_img"
-                    img class="h-full w-20" src="#{is_found ? "/assets/like.jpg" : "/assets/like.jpg"}" alt=""
+                    img class="h-full w-20" src="#{is_found ? "/assets/popcorn.jpg" : "/assets/none_popcorn.jpg"}" alt=""
                 div class="story_like_count"
                     div class="ml-6 text-3xl" = "#{genre.popcorns.count} popcorns"
