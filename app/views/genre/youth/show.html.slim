@@ -15,9 +15,10 @@
                                 - @youth.pages.each do |page|
                                     img src="#{page.url}" class="h-full"
                             div class="story_like_cover flex items-center z-50"
-                                div class="story_like_img"
-                                    img class="h-full w-20 ml-24" src="/assets/like.jpg" alt=""
-                                div class="story_like_count"
-                                    div class="ml-6 text-3xl" 123 popcorns
-        - if @user.is_admin == true
+                                / div class="story_like_img"
+                                /     img class="h-full w-20 ml-24" src="/assets/like.jpg" alt=""
+                                / div class="story_like_count"
+                                /     div class="ml-6 text-3xl" 123 popcorns
+                                = render partial: "shared/button/popcorn", locals: {genre: @youth}
+        - if @current_user.is_admin == true
             a href="#{new_admin_genre_youth_path}" class="upload_story fixed bg-white flex justify-center items-center" +

@@ -6,7 +6,7 @@
             input type="hidden" name="_method" value="delete" autocomplete="off"
         input type="hidden" name="popcorn[popcornable_type]" value="#{genre.class.name}"
         input type="hidden" name="popcorn[popcornable_id]" value="#{genre["id"]}"
-        button type="submit" class="ml-24"
+        button type="submit" class="button_popcorns"
             div class="story_like_cover flex items-center"
                 div class="story_like_img"
                     img class="h-full w-20" src="#{is_found ? "/assets/popcorn.jpg" : "/assets/none_popcorn.jpg"}" alt=""
