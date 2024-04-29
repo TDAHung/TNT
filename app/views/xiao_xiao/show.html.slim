@@ -1,0 +1,21 @@
+        main class="justify-center pt-32"
+            div class="w-7/12 min-h-screen"
+                / 1 element
+                div class="py-12 flex items-center" id="story_1"
+                    div class="story_covers bg-white w-11/12 h-full m-auto"
+                        div class="author_information flex items-center justify-between"
+                            div class="left_layout flex items-center"
+                                div class="avatar_cover w-36"
+                                    img src="/assets/favicon.jpg" alt=""
+                                div class="author_name text-5xl"
+                                    div class="author_name"晓晓✿⁠晓寒
+                                    div class="author_name story_created_at text-2xl" = @xiao_xiao.updated_at.in_time_zone("Asia/Ho_Chi_Minh").strftime("%H:%M %P %d/%m/%Y")
+                        div class="story_image"
+                            div class="h-auto"
+                                img src="#{@xiao_xiao.pages[@xiao_xiao.pages.length-1].url}" class="h-full"
+                                - @xiao_xiao.pages.each do |page|
+                                    img src="#{page.url}" class="h-full"
+                            div class="story_like_cover flex items-center z-50"
+                                = render partial: "shared/button/popcorn", locals: { genre: @xiao_xiao }
+        - if @current_user.is_admin == true
+            a href="#{new_admin_xiao_han_path}" class="upload_story fixed bg-white flex justify-center items-center" +

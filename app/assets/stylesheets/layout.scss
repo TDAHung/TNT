@@ -24,7 +24,7 @@ a {
 }
 
 :root {
-    --GINER: #DC9D00;
+    --BLUE: #B0C1BD;
     --GOLD: #FFE091;
     --WALNUT: #825748;
     --BLUEGREENPASTEL: #6B8B89;
@@ -32,7 +32,7 @@ a {
 
 body {
     height: 100vh;
-    background-color: var(--GOLD);
+    background-color: white;
 }
 
 input:focus {
@@ -55,7 +55,7 @@ input:focus {
 
 header {
     height: 5rem;
-    background-color: var(--GINER);
+    background-color: var(--BLUE);
     z-index: 9999;
 }
 

@@ -1,0 +1,2 @@
+module Admin::XiaoHanHelper
+end

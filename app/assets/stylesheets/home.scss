@@ -1,13 +1,8 @@
-.posters {
-    .poster {
-        height: 25rem;
-        width: 14rem;
-        background-color: var(--WALNUT);
-    }
-
-    img {
-        object-fit: fill;
-    }
+main {
+    padding-right: 20rem;
+    padding-left: 20rem;
+    padding-top: 8rem;
+    justify-content: space-between;
 }
 
 .star {
@@ -27,8 +22,9 @@
 }
 
 .left__layout {
-    width: 55%;
+    width: 43.5%;
 }
+
 
 .right__layout {
     width: 45%;

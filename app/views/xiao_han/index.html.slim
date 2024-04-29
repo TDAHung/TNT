@@ -1,0 +1,20 @@
+        main class="justify-center pt-32"
+            div class="grid grid-cols-4 gap-8 w-10/12"
+                / 1 element
+                - @xiao_hans.each do |xiao_han|
+                    div class=""
+                        div class="story_covers bg-white h-full m-auto"
+                            div class="author_information flex items-center justify-between"
+                                div class="left_layout flex items-center"
+                                    div class="avatar_cover w-28"
+                                        img src="/assets/favicon.jpg" alt=""
+                                    div class="author_name text-2xl"
+                                        div class="author_name"晓晓✿⁠晓寒
+                                        div class="author_name story_created_at text-2xl" = xiao_han.updated_at.in_time_zone("Asia/Ho_Chi_Minh").strftime("%H:%M %P %d/%m/%Y")
+                            div class="story_description mb-8 px-16 text-2xl" = xiao_han.name
+                            div class="story_image"
+                                a class="story_image_cover block genre_pages_cover" href="#{xiao_han_path(xiao_han.id)}"
+                                    = render partial: "shared/carousel", locals: {images: [xiao_han.pages[xiao_han.pages.length-1]]}
+
+        - if @current_user.is_admin == true
+            a href="#{new_admin_xiao_han_path}" class="upload_story fixed bg-white flex justify-center items-center" +

@@ -28,9 +28,6 @@ export default class extends Controller {
         deleteButtonElement.addEventListener('click', () => {
             this.removeImg(imageElement.id, index);
         });
-
-        console.log(this.fileInputTarget.files);
-
         imageElement.innerHTML = '';
         imageElement.appendChild(deleteButtonElement);
         imageElement.appendChild(img);
@@ -40,7 +37,6 @@ export default class extends Controller {
     removeImg(imgID, index) {
         const imgPreview = this.imgGroupTarget.querySelector(`#${imgID}`);
         this.imgGroupTarget.removeChild(imgPreview);
-        console.log(this.fileInputTarget.files);
         const file = this.fileInputTarget.files[index];
         this.dataGlobal.items.remove(file);
         this.fileInputTarget.files = this.dataGlobal.files;

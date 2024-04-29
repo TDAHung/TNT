@@ -1,2 +1,0 @@
-module Genre::YouthHelper
-end

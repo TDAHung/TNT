@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_24_055949) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_29_173741) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,11 +44,40 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_24_055949) do
     t.json "images"
   end
 
+  create_table "stories", force: :cascade do |t|
+    t.string "name"
+    t.json "pages"
+    t.integer "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "story_models", force: :cascade do |t|
+    t.string "name"
+    t.json "pages"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "nickname"
     t.boolean "is_admin"
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "xiao_hans", force: :cascade do |t|
+    t.string "name"
+    t.json "pages"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "xiao_xiaos", force: :cascade do |t|
+    t.string "name"
+    t.json "pages"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

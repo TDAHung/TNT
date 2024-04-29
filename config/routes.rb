@@ -11,27 +11,12 @@ Rails.application.routes.draw do
   post "sign_in", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
 
-  get "explorations", to: "explorations#index"
-
-  namespace :genre do
-    get "angels", to: "angels#index"
-    get "angels/:id", to: "angels#show"
-    get "youth", to: "youth#index"
-    get "youth/:id", to: "youth#show"
-    get "yan", to: "yan#index"
-    get "yan/:id", to: "yan#show"
-  end
+  resources :xiao_xiao, only: [:index, :show]
+  resources :xiao_han, only: [:index, :show]
 
   namespace :admin do
-    resources :posts, only: [:new, :create, :destroy]
-    namespace :genre do
-      resources :angels, only: [:new, :create, :destroy]
-      resources :youth, only: [:new, :create, :destroy]
-      resources :yan, only: [:new, :create, :destroy]
-    end
+    resources :xiao_xiao, only: [:new, :create, :destroy]
+    resources :xiao_han, only: [:new, :create, :destroy]
   end
-
-  resources :feedbacks, only: [:new, :create]
-  resources :posters, only: [:new,:create,:edit, :update]
   resources :popcorns, only: [:create, :destroy]
 end
